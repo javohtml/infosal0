@@ -78,6 +78,10 @@ function initialize() {
 					for(i=0; i<counta;i++){
 					  if(data[i].local_lat!="" && data[i].local_lng!="" && data[i].local_nombre!=""){
 					  		var nombre = data[i].local_nombre;
+					  		var idlocal = data[i].local_id;
+					  		var H_A = data[i].funcionamiento_hora_apertura;
+					  		var H_C = data[i].funcionamiento_hora_cierre;
+					  		var fono = data[i].local_telefono;
 							/*var infowindow = new google.maps.InfoWindow({
 											map: map,
 											position: new google.maps.LatLng(data[i].local_lat, data[i].local_lng),
@@ -89,7 +93,7 @@ function initialize() {
 								map:map,
 								title: data[i].local_nombre});
 							marcadors.setTitle((i + 1).toString());
-    						attachSecretMessage(marcadors, i,nombre);
+    						attachSecretMessage(marcadors, i,nombre,idlocal,H_A,H_C,fono);
 							}
 						}
 					     //display the result in an HTML element
@@ -98,11 +102,16 @@ function initialize() {
 					});
 					//AQUI TERMINA
 }
-function attachSecretMessage(marker, num,names) {
+function attachSecretMessage(marker, num,names,idl,HA,HC,fo) {
 	var message = "jorgy boy";
+	var id = 0;
 	message = names;
+	id=idl;
+	ho_A=HA;
+	ho_C=HC;
+	tel=fo;
 	var infowindow = new google.maps.InfoWindow({
- 	content: message
+ 	content: tel+"</br>"+ho_A+"-"+ho_C+"</br>"+message+"</br><a href='http://farmanet.minsal.cl/maps/index.php/comprobar/informar/"+message+"/?id="+id+"' target='a_blank'>&nbspDenuncia</a>",
   	});
   google.maps.event.addListener(marker, 'click', function() {
     infowindow.open(marker.get('map'), marker);

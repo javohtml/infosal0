@@ -32,10 +32,6 @@
 <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.12&key=AIzaSyCKNT0eAwzOECpzPU4ZG1fZb3KpBEsFKmM&sensor=false">
 </script>
-<script src="assets/js/Bio.js"></script>
-<script type="text/javascript">
-    window.onload = process;
-</script>
 </head>
 
 <body onload="goahead()">
@@ -66,8 +62,8 @@
             <!-- Nav Starts -->
             <div class="navbar-collapse  collapse">
               <ul class="nav navbar-nav navbar-right scroll">
-                 <li class="active"><a href="#works">Home</a></li>
-                 <li ><a href="#about">Farmacias de turno</a></li>
+                 <li class="active"><a href="#works">Inicio</a></li>
+                 <li ><a href="#farmacias">Farmacias de turno</a></li>
                  <li ><a href="#bioequivalentes">Bioequivalentes</a></li>
                  <li ><a href="#centros">Centros de Salud</a></li>
                  <li ><a href="#contact">Mas</a></li>
@@ -116,10 +112,10 @@
 
 
 <!-- Farmacias Starts -->
-<div id="about"  class="container spacer about" style="margin-top:8em;">
+<div id="farmacias"  class="container spacer about" style="margin-top:8em;">
 <h2 class="text-center wowload fadeInUp">Farmacias de Turno</h2>  
   <div class="row">
-  <div class="col-sm-6 wowload fadeInLeft">
+  <div class="col-sm-12 wowload fadeInLeft">
     <h4><i class="fa fa-clock-o"></i> Farmacias de Turno</h4>
     <p>Encuentra la Farmacia que está de Turno hoy en tu región.</p>
     <div id="map_canvas" style="width:100%; height:20em;"></div>
@@ -131,21 +127,19 @@
 
 
 <!--bioequivalentes Starts-->
-<div id="bioequivalentes" class="spacer">
+<div id="bioequivalentes" class="container">
 
 <div class="container contactform center">
-<h2 class="text-center  wowload fadeInUp">Bioequivalentes</h2>
-  <div class="row wowload fadeInLeftBig">      
+  <h2 class="text-center wowload fadeInUp">Bioequivalentes</h2>  
+    <div class="row wowload fadeInLeftBig">      
       <div class="col-sm-6 col-sm-offset-3 col-xs-12">
-        <h4><i class="fa fa-leaf"></i> Bioequivalentes</h4>
-        <p>Encuentra encuentra el bioequivalente a tu actual medicamento.</p>
+    <h4><i class="fa fa-leaf"></i> Bioequivalentes</h4>
+    <p>Encuentra encuentra el bioequivalente a tu actual medicamento.</p>
         <div class="form-group input-group">
           <span class="input-group-addon"><i class="fa fa-search"></i></span>
-          <form>
-            <input type="text" class="form-control" placeholder="Nombre del medicamento" name="userInput" id="userInput">
-          </form>
+          <input type="text" class="form-control" placeholder="Nombre del medicamento">
         </div>
-        <div class="col-sm-6 col-sm-offset-3 col-xs-12" style="background:rgb(234, 234, 234); height:22em;" id="results">
+        <div class="col-sm-12" style="background:rgb(234, 234, 234); height:22em;">
         </div>
       </div>
   </div>
@@ -157,7 +151,7 @@
 <div id="centros"  class="container spacer about" style="margin-top:8em;">
 <h2 class="text-center wowload fadeInUp">Centros de Salud</h2>  
   <div class="row">
-  <div class="col-sm-6 wowload fadeInLeft">
+  <div class="col-sm-12 wowload fadeInLeft">
     <h4><i class="fa fa-user-md"></i> Centros de Salud</h4>
     <p>Encuentra los Centros de Salud en tu región.</p>
     <div id="map_ganvas" style="width:100%; height:20em;"></div>
@@ -174,7 +168,7 @@
 <h2 class="text-center  wowload fadeInUp">Contactanos</h2>
   <div class="row wowload fadeInLeftBig">      
       <div class="col-sm-6 col-sm-offset-3 col-xs-12">
-        <div class="col-sm-6 wowload fadeInLeft">
+        <div class="col-sm-12 wowload fadeInLeft">
           <h4><i class="fa fa-paper-plane"></i> Tienes alguna sugerencia que nos ayude a mejorar?</h4>
         </div>      
         <input type="text" placeholder="Nombre">
@@ -192,10 +186,11 @@
 
 
 
+
 <!-- Footer Starts -->
 <div class="footer text-center spacer">
-<p class="wowload flipInX"><a href="#"><i class="fa fa-facebook fa-2x"></i></a> <a href="#"><i class="fa fa-instagram fa-2x"></i></a> <a href="#"><i class="fa fa-twitter fa-2x"></i></a> <a href="#"><i class="fa fa-flickr fa-2x"></i></a> </p>
-Copyright 2014 Cyrus Creative Studio. All rights reserved.
+<p class="wowload flipInX"><a href="https://www.facebook.com/InfoSalud.Chile?fref=ts" target="a_blank"><i class="fa fa-facebook fa-2x"></i></a> <a href="https://twitter.com/infosaludchile" target="a_blank"><i class="fa fa-twitter fa-2x"></i></a> </p>
+Copyright 2015 Advanceit. All rights reserved.
 </div>
 <!-- # Footer Ends -->
 <a href="#works" class="gototop "><i class="fa fa-angle-up  fa-3x"></i></a>
