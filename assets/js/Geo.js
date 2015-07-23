@@ -9,7 +9,7 @@ function goahead(){
 function initialize() {
 				
 	var mapOptions = {
-		zoom: 18,
+		zoom: 15,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
 	map = new google.maps.Map(document.getElementById('map_canvas'),
@@ -122,7 +122,7 @@ function attachSecretMessage(marker, num,names,idl,HA,HC,tel,di) {
 function initializa() {
 				
 	var mapOptions = {
-		zoom: 18,
+		zoom: 15,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
 	mapa = new google.maps.Map(document.getElementById('map_ganvas'),
@@ -191,6 +191,7 @@ function initializa() {
 					for(i=0; i<counta;i++){
 					  if(data[i].CA_GEO!=null && data[i].CA_GEO!="" && data[i].CA_NOMBRE!="" && data[i].CA_NOMBRE!= null){
 					  		var nombre = data[i].CA_NOMBRE;
+					  		var dir = data[i].CA_DIR;
 					  		var destroy = data[i].CA_GEO;
 					  		var arr 	= destroy.split(',');
 					  		var lat 	= arr[0];
@@ -201,7 +202,7 @@ function initializa() {
 								map:mapa,
 								title: data[i].CA_NOMBRE});
 							marcadors.setTitle((i + 1).toString());
-    						attachMessage(marcadors, i,nombre);
+    						attachMessage(marcadors, i,nombre,dir);
 							}
 						}
 					     //display the result in an HTML element
@@ -210,11 +211,12 @@ function initializa() {
 					});
 					//AQUI TERMINA
 }
-function attachMessage(marker, num,names) {
+function attachMessage(marker, num,names,dir) {
 	var message = "jorgy boy";
 	message = names;
+	direc = dir;
 	var infowindow = new google.maps.InfoWindow({
- 	content: message
+ 	content: direc+"</br>"+message
   	});
   google.maps.event.addListener(marker, 'click', function() {
     infowindow.open(marker.get('map'), marker);

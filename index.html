@@ -137,9 +137,11 @@
     <p>Encuentra encuentra el bioequivalente a tu actual medicamento.</p>
         <div class="form-group input-group">
           <span class="input-group-addon"><i class="fa fa-search"></i></span>
-          <input type="text" class="form-control" placeholder="Nombre del medicamento">
+          <input type="text" name="txt" onchange="myFunction(this.value)" required class="form-control" placeholder="Nombre del medicamento">
         </div>
-        <div class="col-sm-12" style="background:rgb(234, 234, 234); height:22em;">
+        <div class="form-group input-group" style="height:12em;">
+          <iframe  style="height:20em;width:100%;" id="targetframe" allowTransparency="false" scrolling="true" frameborder="0" >
+          </iframe>
         </div>
       </div>
   </div>
@@ -233,5 +235,11 @@ Copyright 2015 Advanceit. All rights reserved.
 <!-- custom script -->
 <script src="assets/script.js"></script>
 <script src="assets/js/Geo.js"></script>
+<script>
+    function myFunction(val) {
+      var h1 = document.getElementById("targetframe"); 
+      h1.setAttribute("src", "http://infosaludapp.cl/scrapping/Addons/vista.php?med="+val);
+    }
+</script>
 </body>
 </html>
