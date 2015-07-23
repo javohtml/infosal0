@@ -113,7 +113,7 @@ function attachSecretMessage(marker, num,names,idl,HA,HC,tel,di) {
 	te=tel
 	dir=di;
 	var infowindow = new google.maps.InfoWindow({
- 	content: dir+"</br>"+te+"</br>"+ho_A+"-"+ho_C+"</br>"+message+"</br><a href='http://farmanet.minsal.cl/maps/index.php/comprobar/informar/"+message+"/?id="+id+"'>&nbspDenuncia</a>",
+ 	content: dir+"</br>"+te+"</br>"+ho_A+"-"+ho_C+"</br>"+message+"</br><a href='http://farmanet.minsal.cl/maps/index.php/comprobar/informar/"+message+"/?id="+id+"' target='a_blank'>&nbspDenuncia</a>",
   	});
   google.maps.event.addListener(marker, 'click', function() {
     infowindow.open(marker.get('map'), marker);
