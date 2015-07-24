@@ -210,6 +210,7 @@ function initializa() {
 					  alert('Something went wrong.');
 					});
 					//AQUI TERMINA
+					google.maps.event.trigger(mapa,'resize')
 }
 function attachMessage(marker, num,names,dir) {
 	var message = "jorgy boy";
