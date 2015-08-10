@@ -62,11 +62,11 @@
             <!-- Nav Starts -->
             <div class="navbar-collapse  collapse">
               <ul class="nav navbar-nav navbar-right scroll">
-                 <li class="active"><a href="index.html">Inicio</a></li>
+                 <li ><a href="index.html">Inicio</a></li>
                  <li ><a href="farmacias.html">Farmacias de turno</a></li>
                  <li ><a href="bioequivalentes.html">Bioequivalentes</a></li>
                  <li ><a href="centros.html">Centros de Salud</a></li>
-                 <li ><a href="contacto.html">Mas</a></li>
+                 <li class="active"><a href="contacto.html">Mas</a></li>
               </ul>
             </div>
             <!-- #Nav Ends -->
@@ -77,40 +77,35 @@
       </div>
     </div>
 <!-- #Header Starts -->
+<!--Contact Starts-->
+<div id="contact" class="spacer">
 
-
-
-
-
-
-
-<!-- works -->
-<div id="works"  class="container spacer about">
-  <div class="process">
-  <h3 class="text-center wowload fadeInUp">Información a tu alcance</h3>
-  <ul class="row text-center list-inline  wowload bounceInUp">
-      <li>
-            <a href="farmacias.html"><span><i class="fa fa-clock-o"></i><b>Farmacias de turno</b></span></a>
-        </li>
-        <li>
-            <a href="bioequivalentes.html"><span><i class="fa fa-leaf"></i><b>Bioequivalentes</b></span></a>
-        </li>
-        <li>
-            <a href="centros.html"><span><i class="fa fa-user-md"></i><b>Centros de salud</b></span></a>
-        </li>
-        <li>
-            <a href="centros.html"><span><i class="fa fa-user-md"></i><b>Centros de salud</b></span></a>
-        </li>
-        <li>
-            <a href="centros.html"><span><i class="fa fa-user-md"></i><b>Centros de salud</b></span></a>
-        </li>
-        <li>
-           <a href="contact.html"><span><i class="fa fa-plus"></i><b>Contact</b></span></a>
-        </li>        
-    </ul>
+<div class="container contactform center">
+<h2 class="text-center  wowload fadeInUp">Contactanos</h2>
+  <div class="row wowload fadeInLeftBig">      
+      <div class="col-sm-8 col-sm-offset-2 col-xs-12">
+        <div class="col-sm-12 wowload fadeInLeft">
+          <h4><i class="fa fa-paper-plane"></i> Tienes alguna sugerencia que nos ayude a mejorar?</h4>
+          <iframe  style="height:6em; width:100%;" id="frameresult" name="frameresult" allowTransparency="false" scrolling="false" frameborder="0"></iframe>
+        </div>
+        <form name="myForm" onsubmit="formSender()" method="post">      
+          <input type="text" placeholder="Nombre" id="fname" name="fname" required>
+          <input type="email" placeholder="Correo" id="femail" name="femail" required>
+          <textarea rows="5" placeholder="Message" id="fmessage" name="fmessage" required></textarea>
+          <button class="btn btn-primary" type="submit"><i class="fa fa-paper-plane"></i> Enviar!</button>
+        </form>
+      </div>
   </div>
+
+
+
 </div>
-<!-- works -->
+</div>
+<!--Contact Ends-->
+
+
+
+
 <!-- Footer Starts -->
 <div class="footer text-center spacer">
 <p class="wowload flipInX"><a href="https://www.facebook.com/InfoSalud.Chile?fref=ts" target="a_blank"><i class="fa fa-facebook fa-2x"></i></a> <a href="https://twitter.com/infosaludchile" target="a_blank"><i class="fa fa-twitter fa-2x"></i></a> </p>

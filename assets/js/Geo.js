@@ -4,6 +4,8 @@ var wap
 var warcador
 function goahead(){
 	initialize();
+}
+function gofoward(){
 	initializa();
 }
 function initialize() {
