@@ -64,11 +64,17 @@
 				<div class="row wowload fadeInLeftBig">
 					<div class="col-sm-8 col-sm-offset-2 col-xs-10">
 						<h4><i class="fa fa-leaf"></i> Bioequivalentes</h4>
-						<p>Encuentra el bioequivalente a tu actual medicamento.</p>
+						<p>Encuentra el bioequivalente a tu actual medicamento: <small id="interim_span"> </small></p>
 						<form  action="" method="get" id="buscar">
 							<div class="form-group input-group">
+								<div class="input-group-addon">
+								  <button id="start_button" onclick="startButton(event)">
+								    <img id="start_img" src="images/mic.gif" alt="Start" style="max-width:35px; height:35px"></button>
+								</div>
+
+								<input type="text" name="principio" id="principio" required class="form-control" placeholder="Nombre del medicamento" style="padding:0; height:55px;">
 								<span class="input-group-addon"><i class="fa fa-search"></i></span>
-								<input type="text" name="principio" id="principio" required class="form-control" placeholder="Nombre del medicamento" style="padding:0;">
+
 							</div>
 						</form>
 						<div class="col-sm-12">
@@ -123,31 +129,37 @@
 		<!-- custom script -->
 		<script src="assets/script.js"></script>
 		<script type="text/javascript">
+		function buscarBioequivalente(){
+			var principio = $("#principio").val().toUpperCase()
+			$.ajax({
+				url: 'https://json4apps.herokuapp.com/bioequivalentes',
+				type: 'GET',
+				dataType: 'json',
+				success: function(data){
+					if(data.Message=="bioequivalentes"){
+						var html = ""
+						for (var i = 0; i < data.Data.length; i++) {
+							if(principio==data.Data[i].BIO_PA){
+								html += "<tr><td>" + data.Data[i].BIO_PA + "</td>"
+								html += "<td>" + data.Data[i].BIO_PRODRODUCTO + "</td>"
+								html += "<td>" + data.Data[i].BIO_TITULAR + "</td>"
+								html += "<td>" + data.Data[i].BIO_USO + "</td></tr>"
+							}
+						}
+						$("#resultados").html(html)
+					}else{
+						bootbox.alert("Ups! no podemos procesar su solicitud en este momento, por favor intente mas tarde");
+					}
+				}
+			});
+		}
+		</script>
+		<script type="text/javascript">
 			$("#buscar").submit(function(){
 			  event.preventDefault();
-			  var principio = $("#principio").val().toUpperCase()
-			  $.ajax({
-			    url: 'https://json4apps.herokuapp.com/bioequivalentes',
-			    type: 'GET',
-			    dataType: 'json',
-			    success: function(data){
-			      if(data.Message=="bioequivalentes"){
-              var html = ""
-			        for (var i = 0; i < data.Data.length; i++) {
-                if(principio==data.Data[i].BIO_PA){
-  			          html += "<tr><td>" + data.Data[i].BIO_PA + "</td>"
-                  html += "<td>" + data.Data[i].BIO_PRODRODUCTO + "</td>"
-                  html += "<td>" + data.Data[i].BIO_TITULAR + "</td>"
-                  html += "<td>" + data.Data[i].BIO_USO + "</td></tr>"
-                }
-			        }
-              $("#resultados").html(html)
-			      }else{
-			        bootbox.alert("Ups! no podemos procesar su solicitud en este momento, por favor intente mas tarde");
-			      }
-			    }
-			  });
+			  buscarBioequivalente()
 			});
 		</script>
+		<script src="assets/js/speaker.js"></script>
 	</body>
 </html>
