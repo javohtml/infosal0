@@ -9,14 +9,14 @@ function gofoward(){
 	initializa();
 }
 function initialize() {
-				
+
 	var mapOptions = {
 		zoom: 15,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
 	map = new google.maps.Map(document.getElementById('map_canvas'),
 		mapOptions);
-					
+
 	if(navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function(position) {
 		var pos = new google.maps.LatLng(position.coords.latitude,
@@ -31,7 +31,7 @@ function initialize() {
 					position: pos,
 					map:map,
 					title: 'Dónde estoy?' })
-					
+
 						  map.setCenter(pos);
 						}, function() {
 						  handleNoGeolocation(true);
@@ -75,7 +75,7 @@ function initialize() {
 					  });
 					};
 
-					getJSON('http://infosaludapp.cl/getLocals.php').then(function(data) {
+					getJSON('https://json4apps.herokuapp.com/farmacias').then(function(data) {
 					counta = Object.keys(data).length;
 					for(i=0; i<counta;i++){
 					  if(data[i].local_lat!="" && data[i].local_lng!="" && data[i].local_nombre!=""){
@@ -122,14 +122,14 @@ function attachSecretMessage(marker, num,names,idl,HA,HC,tel,di) {
   });
 }
 function initializa() {
-				
+
 	var mapOptions = {
 		zoom: 15,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
 	mapa = new google.maps.Map(document.getElementById('map_ganvas'),
 		mapOptions);
-					
+
 	if(navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function(position) {
 		var pos = new google.maps.LatLng(position.coords.latitude,
@@ -144,7 +144,7 @@ function initializa() {
 					position: pos,
 					map:mapa,
 					title: 'Dónde estoy?' })
-					
+
 						  mapa.setCenter(pos);
 						}, function() {
 						  handleNoGeolocation(true);
@@ -188,13 +188,13 @@ function initializa() {
 					  });
 					};
 
-					getJSON('http://infosaludapp.cl/infohos.php').then(function(data) {
-					counta = Object.keys(data).length;
+					getJSON('https://json4apps.herokuapp.com/centros').then(function(data) {
+					counta = Object.keys(data.Data).length;
 					for(i=0; i<counta;i++){
-					  if(data[i].CA_GEO!=null && data[i].CA_GEO!="" && data[i].CA_NOMBRE!="" && data[i].CA_NOMBRE!= null){
-					  		var nombre = data[i].CA_NOMBRE;
-					  		var dir = data[i].CA_DIR;
-					  		var destroy = data[i].CA_GEO;
+					  if(data.Data[i].CA_GEO!=null && data.Data[i].CA_GEO!="" && data.Data[i].CA_NOMBRE!="" && data.Data[i].CA_NOMBRE!= null){
+					  		var nombre = data.Data[i].CA_NOMBRE;
+					  		var dir = data.Data[i].CA_DIR;
+					  		var destroy = data.Data[i].CA_GEO;
 					  		var arr 	= destroy.split(',');
 					  		var lat 	= arr[0];
 					  		var lan 	= arr[1];
@@ -202,7 +202,7 @@ function initializa() {
 
 								position: new google.maps.LatLng(lat, lan),
 								map:mapa,
-								title: data[i].CA_NOMBRE});
+								title: data.Data[i].CA_NOMBRE});
 							marcadors.setTitle((i + 1).toString());
     						attachMessage(marcadors, i,nombre,dir);
 							}
