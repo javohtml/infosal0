@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>InfoSalud App</title>
+		<!-- Google fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+		<!-- font awesome -->
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+		<!-- bootstrap -->
+		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+		<!-- animate.css -->
+		<link rel="stylesheet" href="assets/animate/animate.css" />
+		<link rel="stylesheet" href="assets/animate/set.css" />
+		<!-- gallery -->
+		<link rel="stylesheet" href="assets/gallery/blueimp-gallery.min.css">
+		<style media="screen">
+			thead, tbody { display: block; }
+		</style>
+		<!-- favicon -->
+		<link rel="shortcut icon" href="images/icon400.ico" type="image/x-icon">
+		<link rel="icon" href="images/icon400.ico" type="image/x-icon">
+		<!-- Ajax -->
+		<link rel="stylesheet" href="assets/style.css">
+		<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
+	</head>
+	<body>
+		<div class="topbar animated fadeInLeftBig"></div>
+		<!-- Header Starts -->
+		<div class="navbar-wrapper">
+			<div class="container">
+				<div class="navbar navbar-default navbar-fixed-top" role="navigation" id="top-nav">
+					<div class="container">
+						<div class="navbar-header">
+							<!-- Logo Starts -->
+							<a class="navbar-brand" href="#works"><img src="images/logo.png" alt="logo"></a>
+							<!-- #Logo Ends -->
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							</button>
+						</div>
+						<!-- Nav Starts -->
+						<div class="navbar-collapse  collapse">
+							<ul class="nav navbar-nav navbar-right scroll">
+								<li ><a href="index.html">Inicio</a></li>
+								<li ><a href="farmacias.html">Farmacias de turno</a></li>
+								<li><a href="bioequivalentes.html">Bioequivalentes</a></li>
+								<li class="active"><a href="#">Medicamentos</a></li>
+								<li ><a href="centros.html">Centros de Salud</a></li>
+								<li ><a href="contacto.html">Mas</a></li>
+							</ul>
+						</div>
+						<!-- #Nav Ends -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- #Header Starts -->
+		<!--bioequivalentes Starts-->
+		<div id="bioequivalentes" class="container" style="margin-top:6em;">
+			<div class="container contactform center">
+				<h2 class="text-center wowload fadeInUp">El Valor de tu medicamento</h2>
+				<div class="row wowload fadeInLeftBig">
+					<div class="col-sm-12  col-xs-12">
+						<h4><i class="fa fa-money"></i> Medicamentos</h4>
+						<p>Encuentra el valor actual de tu medicamento: <small id="interim_span"> </small></p>
+						<form  action="" method="get" id="buscar">
+							<div class="form-group input-group">
+								<div class="input-group-addon">
+								  <button id="start_button" onclick="startButton(event)">
+								    <img id="start_img" src="images/mic.gif" alt="Start" style="max-width:35px; height:35px"></button>
+								</div>
+								<input type="text" name="principio" id="principio" required class="form-control" placeholder="Nombre del medicamento" style="padding:0; height:55px;">
+								<span class="input-group-addon"><i class="fa fa-search"></i></span>
+							</div>
+							<div class="form-group input-group" style="width: 100% ;text-align: center;"><button type="submit" class="btn btn-success">Buscar <i class="fa fa-eye"></i></button></div>
+						</form>
+
+					</div>
+					<div class="col-sm-12  col-xs-12">
+						<table class="table table-hover" style="max-height: 15em; overflow-y: scroll; font-size:0.6em;">
+							<thead>
+								<tr>
+									<th>Medicamento</th>
+									<th>Dosis</th>
+									<th>Presentación</th>
+									<th>Marca</th>
+									<th>Farmacía</th>
+									<th>Precio</th>
+									<th>Dirección</th>
+								</tr>
+							</thead>
+							<tbody id="resultados" style="height: 23vh;overflow-y: auto;overflow-x: hidden;">
+								<tr><td colspan="7"><center>QUE DESEA BUSCAR HOY?</center></td></tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--bioequivalentes Ends-->
+		<!-- Footer Starts -->
+		<div class="footer text-center spacer">
+			<p class="wowload flipInX"><a href="https://www.facebook.com/InfoSalud.Chile?fref=ts" target="a_blank"><i class="fa fa-facebook fa-2x"></i></a> <a href="https://twitter.com/infosaludchile" target="a_blank"><i class="fa fa-twitter fa-2x"></i></a> </p>
+			Copyright 2016 Infosalud Chile, Todos los derechos reservados
+		</div>
+		<!-- # Footer Ends -->
+		<a href="#works" class="gototop "><i class="fa fa-angle-up  fa-3x"></i></a>
+		<!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+		<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+			<!-- The container for the modal slides -->
+			<div class="slides"></div>
+			<!-- Controls for the borderless lightbox -->
+			<h3 class="title">Title</h3>
+			<a class="prev">‹</a>
+			<a class="next">›</a>
+			<a class="close">×</a>
+			<!-- The modal dialog, which will be used to wrap the lightbox content -->
+		</div>
+		<!-- jquery -->
+		<script src="assets/jquery.js"></script>
+		<!-- wow script -->
+		<script src="assets/wow/wow.min.js"></script>
+		<!-- boostrap -->
+		<script src="assets/bootstrap/js/bootstrap.js" type="text/javascript" ></script>
+		<!-- jquery mobile -->
+		<script src="assets/mobile/touchSwipe.min.js"></script>
+		<script src="assets/respond/respond.js"></script>
+		<!-- gallery -->
+		<script src="assets/gallery/jquery.blueimp-gallery.min.js"></script>
+		<!-- custom script -->
+		<script src="assets/script.js"></script>
+		<script src="assets/bootbox.min.js"></script>
+		<script type="text/javascript">
+		function buscarMedicamento(){
+			var principio = $("#principio").val().toUpperCase()
+			$.ajax({
+				url: 'https://json4apps.herokuapp.com/medicamentos',
+				type: 'GET',
+				dataType: 'json',
+				success: function(data){
+
+					var html = ""
+					var cont = 0
+					for (var i = 0; i < data.length; i++) {
+						if(principio==data[i].Medicamento.toUpperCase()){
+							html += "<tr><td>" + data[i].Medicamento + "</td>"
+							html += "<td>" + data[i].Dosis + "</td>"
+							html += "<td>" + data[i].Presentación + "</td>"
+							html += "<td>" + data[i].Marca + "</td>"
+							html += "<td>" + data[i].Farmacía + "</td>"
+							html += "<td> $" + data[i].Precio.toLocaleString(['ban', 'id']) + "</td>"
+							html += "<td>" + data[i].Dirección + "</td>"
+							//html += "<td>" + data[i].Comuna + "</td>"
+							//html += "<td>" + data[i].Región + "</td></tr>"
+							cont++
+						}
+					}
+					if(cont!=0){
+						$("#resultados").html(html)
+					} else {
+						bootbox.alert("Ups! no hemos encontrado un bioequivalente para " + principio);
+					}
+				}
+			});
+		}
+		</script>
+		<script type="text/javascript">
+			$("#buscar").submit(function(){
+			  event.preventDefault();
+			  buscarMedicamento()
+			});
+		</script>
+		<script src="assets/js/speaker2.js"></script>
+	</body>
+</html>

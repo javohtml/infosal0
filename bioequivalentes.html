@@ -16,6 +16,9 @@
 		<link rel="stylesheet" href="assets/animate/set.css" />
 		<!-- gallery -->
 		<link rel="stylesheet" href="assets/gallery/blueimp-gallery.min.css">
+		<style media="screen">
+			thead, tbody { display: block; }
+		</style>
 		<!-- favicon -->
 		<link rel="shortcut icon" href="images/icon400.ico" type="image/x-icon">
 		<link rel="icon" href="images/icon400.ico" type="image/x-icon">
@@ -46,7 +49,8 @@
 							<ul class="nav navbar-nav navbar-right scroll">
 								<li ><a href="index.html">Inicio</a></li>
 								<li ><a href="farmacias.html">Farmacias de turno</a></li>
-								<li class="active"><a href="bioequivalentes.html">Bioequivalentes</a></li>
+								<li class="active"><a href="#">Bioequivalentes</a></li>
+								<li><a href="medicamentos.html">Medicamentos</a></li>
 								<li ><a href="centros.html">Centros de Salud</a></li>
 								<li ><a href="contacto.html">Mas</a></li>
 							</ul>
@@ -62,7 +66,7 @@
 			<div class="container contactform center">
 				<h2 class="text-center wowload fadeInUp">Bioequivalentes</h2>
 				<div class="row wowload fadeInLeftBig">
-					<div class="col-sm-8 col-sm-offset-2 col-xs-10">
+					<div class="col-sm-12  col-xs-12">
 						<h4><i class="fa fa-leaf"></i> Bioequivalentes</h4>
 						<p>Encuentra el bioequivalente a tu actual medicamento: <small id="interim_span"> </small></p>
 						<form  action="" method="get" id="buscar">
@@ -74,24 +78,25 @@
 
 								<input type="text" name="principio" id="principio" required class="form-control" placeholder="Nombre del medicamento" style="padding:0; height:55px;">
 								<span class="input-group-addon"><i class="fa fa-search"></i></span>
-
 							</div>
+							<div class="form-group input-group" style="width: 100% ;text-align: center;"><button type="submit" class="btn btn-success">Buscar <i class="fa fa-search"></i></button></div>
 						</form>
-						<div class="col-sm-12">
-							<table class="table table-hover" style="max-height: 15em; overflow-y: scroll;">
-								<thead>
-									<tr>
-										<th>PRINCIPIO ACTIVO</th>
-										<th>PRODUCTO</th>
-										<th>TITULAR</th>
-										<th>PRINCIPALMENTE USADO EN</th>
-									</tr>
-								</thead>
-								<tbody id="resultados">
-                  <tr><td colspan="4"><center>QUE DESEA BUSCAR HOY?</center></td></tr>
-								</tbody>
-							</table>
-						</div>
+
+					</div>
+					<div class="col-sm-12  col-xs-12">
+						<table class="table table-hover" style="max-height: 15em; overflow-y: scroll;">
+							<thead>
+								<tr>
+									<th>PRINCIPIO ACTIVO</th>
+									<th>PRODUCTO</th>
+									<th>TITULAR</th>
+									<th>USADO PARA</th>
+								</tr>
+							</thead>
+							<tbody id="resultados" style="height: 19vh;overflow-y: auto;overflow-x: hidden; font-size:0.8em;">
+								<tr><td colspan="4"><center>QUE DESEA BUSCAR HOY?</center></td></tr>
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</div>
@@ -128,6 +133,7 @@
 		<script src="assets/gallery/jquery.blueimp-gallery.min.js"></script>
 		<!-- custom script -->
 		<script src="assets/script.js"></script>
+		<script src="assets/bootbox.min.js"></script>
 		<script type="text/javascript">
 		function buscarBioequivalente(){
 			var principio = $("#principio").val().toUpperCase()
@@ -138,15 +144,22 @@
 				success: function(data){
 					if(data.Message=="bioequivalentes"){
 						var html = ""
+						var cont = 0
 						for (var i = 0; i < data.Data.length; i++) {
 							if(principio==data.Data[i].BIO_PA){
 								html += "<tr><td>" + data.Data[i].BIO_PA + "</td>"
 								html += "<td>" + data.Data[i].BIO_PRODRODUCTO + "</td>"
 								html += "<td>" + data.Data[i].BIO_TITULAR + "</td>"
 								html += "<td>" + data.Data[i].BIO_USO + "</td></tr>"
+								cont++
 							}
 						}
-						$("#resultados").html(html)
+						if(cont!=0){
+							$("#resultados").html(html)
+						} else {
+							bootbox.alert("Ups! no hemos encontrado un bioequivalente para " + principio);
+						}
+
 					}else{
 						bootbox.alert("Ups! no podemos procesar su solicitud en este momento, por favor intente mas tarde");
 					}

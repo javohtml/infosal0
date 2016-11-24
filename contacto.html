@@ -32,7 +32,7 @@
 </script>
 </head>
 
-<body onload="goahead()">
+<body>
 <div class="topbar animated fadeInLeftBig"></div>
 
 <!-- Header Starts -->
@@ -63,8 +63,9 @@
                  <li ><a href="index.html">Inicio</a></li>
                  <li ><a href="farmacias.html">Farmacias de turno</a></li>
                  <li ><a href="bioequivalentes.html">Bioequivalentes</a></li>
+                 <li><a href="medicamentos.html">Medicamentos</a></li>
                  <li ><a href="centros.html">Centros de Salud</a></li>
-                 <li class="active"><a href="contacto.html">Mas</a></li>
+                 <li class="active"><a href="#">Mas</a></li>
               </ul>
             </div>
             <!-- #Nav Ends -->
@@ -76,7 +77,7 @@
     </div>
 <!-- #Header Starts -->
 <!--Contact Starts-->
-<div id="contact" class="spacer">
+<div id="contact" class="spacer" style="margin-top: 9vh;">
 
 <div class="container contactform center">
 <h2 class="text-center  wowload fadeInUp">Contactanos</h2>
@@ -88,7 +89,7 @@
         </div>
         <form name="enviar" id="enviar" method="post">
           <input type="text" placeholder="Nombre" id="subject" name="subject" required>
-          <textarea rows="5" placeholder="Message" id="body" name="body" required></textarea>
+          <textarea rows="5" style="height: 24vh;" placeholder="Message" id="body" name="body" required></textarea>
           <button class="btn btn-primary" type="submit"><i class="fa fa-paper-plane"></i> Enviar!</button>
         </form>
       </div>
