@@ -92,49 +92,7 @@
           <clobbers target="SpeechGrammarList" />
       </js-module>
 
-      <!-- android -->
-      <platform name="android">
-          <config-file target="res/xml/config.xml" parent="/*">
-              <feature name="SpeechRecognition">
-                  <param name="android-package" value="org.apache.cordova.speech.SpeechRecognition"/>
-              </feature>
-          </config-file>
-          <config-file target="AndroidManifest.xml" parent="/*">
-              <uses-permission android:name="android.permission.RECORD_AUDIO" />
-          </config-file>
 
-          <source-file src="src/android/SpeechRecognition.java" target-dir="src/org/apache/cordova/speech" />
-      </platform>
-      <platform name="ios">
-          <config-file target="config.xml" parent="/*">
-              <feature name="SpeechRecognition">
-                  <param name="ios-package" value="SpeechRecognition"/>
-              </feature>
-          </config-file>
-
-          <source-file src="src/ios/SpeechRecognition.m" />
-          <source-file src="src/ios/libiSpeechSDK.a" framework="true" />
-
-          <header-file src="src/ios/SpeechRecognition.h" />
-          <header-file src="src/ios/Headers/iSpeechSDK.h" />
-          <header-file src="src/ios/Headers/ISSpeechRecognition.h" />
-          <header-file src="src/ios/Headers/ISSpeechRecognitionLocales.h" />
-          <header-file src="src/ios/Headers/ISSpeechRecognitionResult.h" />
-          <header-file src="src/ios/Headers/ISSpeechSynthesis.h" />
-          <header-file src="src/ios/Headers/ISSpeechSynthesisVoices.h" />
-
-
-          <framework src="AudioToolbox.framework" />
-          <framework src="SystemConfiguration.framework" />
-          <framework src="Security.framework" />
-          <framework src="CFNetwork.framework" />
-
-          <resource-file src="src/ios/iSpeechSDK.bundle" />
-          <preference name="MICROPHONE_USAGE_DESCRIPTION" default=" " />
-          <config-file target="*-Info.plist" parent="NSMicrophoneUsageDescription">
-              <string>$MICROPHONE_USAGE_DESCRIPTION</string>
-          </config-file>
-      </platform>
     <!-- Third party plugins -->
     <!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
     <!--
@@ -196,10 +154,48 @@
     <allow-intent href="geo:*" />
     <platform name="android">
         <allow-intent href="market:*" />
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="SpeechRecognition">
+                <param name="android-package" value="org.apache.cordova.speech.SpeechRecognition"/>
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.RECORD_AUDIO" />
+        </config-file>
+
+        <source-file src="src/android/SpeechRecognition.java" target-dir="src/org/apache/cordova/speech" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
+        <config-file target="config.xml" parent="/*">
+            <feature name="SpeechRecognition">
+                <param name="ios-package" value="SpeechRecognition"/>
+            </feature>
+        </config-file>
+
+        <source-file src="src/ios/SpeechRecognition.m" />
+        <source-file src="src/ios/libiSpeechSDK.a" framework="true" />
+
+        <header-file src="src/ios/SpeechRecognition.h" />
+        <header-file src="src/ios/Headers/iSpeechSDK.h" />
+        <header-file src="src/ios/Headers/ISSpeechRecognition.h" />
+        <header-file src="src/ios/Headers/ISSpeechRecognitionLocales.h" />
+        <header-file src="src/ios/Headers/ISSpeechRecognitionResult.h" />
+        <header-file src="src/ios/Headers/ISSpeechSynthesis.h" />
+        <header-file src="src/ios/Headers/ISSpeechSynthesisVoices.h" />
+
+
+        <framework src="AudioToolbox.framework" />
+        <framework src="SystemConfiguration.framework" />
+        <framework src="Security.framework" />
+        <framework src="CFNetwork.framework" />
+
+        <resource-file src="src/ios/iSpeechSDK.bundle" />
+        <preference name="MICROPHONE_USAGE_DESCRIPTION" default=" " />
+        <config-file target="*-Info.plist" parent="NSMicrophoneUsageDescription">
+            <string>$MICROPHONE_USAGE_DESCRIPTION</string>
+        </config-file>
     </platform>
 
 </widget>
