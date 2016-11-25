@@ -2,11 +2,9 @@ var final_transcript = '';
 var recognizing = false;
 var ignore_onend;
 var start_timestamp;
-if (!('webkitSpeechRecognition' in window)) {
-  upgrade();
-} else {
+
   start_button.style.display = 'inline-block';
-  var recognition = new webkitSpeechRecognition();
+  var recognition = new SpeechRecognition();
   recognition.continuous = true;
   recognition.interimResults = true;
 
@@ -53,7 +51,7 @@ if (!('webkitSpeechRecognition' in window)) {
       showButtons('inline-block');
     }
   };
-}
+
 
 function upgrade() {
   start_button.style.visibility = 'hidden';
